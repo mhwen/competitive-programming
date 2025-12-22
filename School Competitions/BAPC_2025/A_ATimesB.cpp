@@ -1,0 +1,46 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <queue>
+#include <map>
+#include <set>
+#include <stack>
+#include <functional>
+#include <cmath>
+#include <numeric>
+#include <iomanip>
+#include <cassert>
+
+using namespace std;
+typedef long long ll;
+typedef long double ld;
+#define sz(x) (int)(x).size()
+#define all(x) begin(x), end(x)
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	int t;
+	cin >> t;
+	while(t-->0) {
+	    ll a, b, n, m;
+	    cin >> a >> b >> n >> m;
+	    ll ans = a*b;
+	    while(a < n && b < m) {
+	        if(a > b)
+	            b++;
+	        else
+	            a++;
+	        ans += a*b;
+	    }
+	    while(a < n) {
+	        a++;
+	        ans += a*b;
+	    }
+	    while(b < m) {
+	        b++;
+	        ans += a*b;
+	    }
+	    cout << ans << "\n";
+	}
+}
